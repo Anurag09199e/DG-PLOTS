@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { MapPin, Maximize, Check, Phone, MessageCircle, Calendar } from 'lucide-react';
 import EMICalculator from '../components/EMICalculator';
 import { motion } from 'framer-motion';
@@ -6,15 +6,17 @@ import { useTranslation } from 'react-i18next';
 
 const PlotDetails = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const category = location.state?.category || 'domestic';
   const { t } = useTranslation();
 
   // Mock plot data based on ID (or just generic data for demo)
   const plot = {
     id: id,
     title: t('plotDetails.mockTitle'),
-    price: 3500000,
+    price: category === 'investment' ? 4500000 : 3500000,
     location: t('plotDetails.mockLoc'),
-    type: t('plotCard.plot'),
+    type: category === 'investment' ? t('plotCard.investment') : t('plotCard.domestic'),
     size: 2400,
     description: t('plotDetails.mockDesc'),
     features: [
@@ -40,27 +42,29 @@ const PlotDetails = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Special Investment Offer Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8 bg-gradient-to-r from-dg-gold to-yellow-600 rounded-xl p-1 shadow-2xl relative overflow-hidden group"
-        >
-          <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          <div className="bg-dg-dark rounded-lg p-6 md:p-8 flex flex-col md:flex-row items-center justify-between relative z-10">
-            <div>
-              <div className="inline-block bg-dg-gold/20 text-dg-gold px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-3 border border-dg-gold/30">
-                {t('plotDetails.exclusiveOffer')}
+        {category === 'investment' && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8 bg-gradient-to-r from-dg-gold to-yellow-600 rounded-xl p-1 shadow-2xl relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <div className="bg-dg-dark rounded-lg p-6 md:p-8 flex flex-col md:flex-row items-center justify-between relative z-10">
+              <div>
+                <div className="inline-block bg-dg-gold/20 text-dg-gold px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-3 border border-dg-gold/30">
+                  {t('plotDetails.exclusiveOffer')}
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('plotDetails.buybackTitle')}</h2>
+                <p className="text-gray-300 max-w-2xl text-sm md:text-base">
+                  {t('plotDetails.buybackDesc')} <strong className="text-dg-gold">{t('plotDetails.buybackHighlight')}</strong>.
+                </p>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('plotDetails.buybackTitle')}</h2>
-              <p className="text-gray-300 max-w-2xl text-sm md:text-base">
-                {t('plotDetails.buybackDesc')} <strong className="text-dg-gold">{t('plotDetails.buybackHighlight')}</strong>.
-              </p>
+              <div className="mt-6 md:mt-0">
+                <span className="text-5xl" role="img" aria-label="trophy">🏆</span>
+              </div>
             </div>
-            <div className="mt-6 md:mt-0">
-              <span className="text-5xl" role="img" aria-label="trophy">🏆</span>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
@@ -124,9 +128,44 @@ const PlotDetails = () => {
 
             {/* Features */}
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-serif font-bold text-dg-dark mb-6 border-b border-gray-100 pb-4">{t('plotDetails.keyFeatures')}</h3>
+              <h3 className="text-2xl font-serif font-bold text-dg-dark mb-6 border-b border-gray-100 pb-4">
+                {category === 'investment' ? t('plotDetails.investmentBenefits') : t('plotDetails.residentialFeatures')}
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4">
-                {plot.features.map((feature, idx) => (
+                {category === 'investment' ? (
+                  <>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.highROI')}</span>
+                    </motion.div>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.capitalAppreciation')}</span>
+                    </motion.div>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.primeDevelopment')}</span>
+                    </motion.div>
+                  </>
+                ) : (
+                  <>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.nearbySchools')}</span>
+                    </motion.div>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.nearbyHospital')}</span>
+                    </motion.div>
+                    <motion.div whileHover={{ x: 5 }} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100 hover:border-dg-gold/30 hover:shadow-md transition-all duration-300">
+                      <div className="bg-green-100 p-2 rounded-full shadow-sm"><Check className="w-5 h-5 text-green-600" /></div>
+                      <span className="text-gray-800 font-semibold">{t('plotDetails.nearbyMarket')}</span>
+                    </motion.div>
+                  </>
+                )}
+                
+                {/* Original fallback features to fill the grid */}
+                {plot.features.slice(0, 5).map((feature, idx) => (
                   <motion.div 
                     whileHover={{ x: 5 }}
                     key={idx} 

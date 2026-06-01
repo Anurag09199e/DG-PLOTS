@@ -38,6 +38,10 @@
     "premiumPlotsTitle": "प्रीमियम",
     "premiumPlotsHighlight": "प्लॉट्स",
     "premiumPlotsDesc": "अविश्वसनीय निवेश क्षमता और गारंटीशुदा बायबैक प्रस्तावों के साथ विशेष प्लॉट्स खोजें।",
+    "domesticPlotsTitle": "घरेलू",
+    "domesticPlotsDesc": "उन ग्राहकों के लिए जो आधुनिक आवासीय सुविधाओं के साथ अपना घर बनाना चाहते हैं।",
+    "investmentPlotsTitle": "निवेश",
+    "investmentPlotsDesc": "उन ग्राहकों के लिए जो भविष्य में लाभ, उच्च रिटर्न और गारंटीशुदा बायबैक चाहते हैं।",
     "founderSubtitle": "हमारे संस्थापक से मिलें",
     "founderName": "अनुराग परमार",
     "founderTitle": "DG PLOTS के पीछे के दूरदर्शी",
@@ -92,7 +96,9 @@
   "plotsPage": {
     "title1": "प्रीमियम",
     "title2": "प्लॉट्स",
-    "desc": "हमारे चुने हुए लक्ज़री प्लॉट्स पर शुरुआत से ही अपनी सपनों की एस्टेट बनाएं।"
+    "desc": "हमारे चुने हुए लक्ज़री प्लॉट्स पर शुरुआत से ही अपनी सपनों की एस्टेट बनाएं।",
+    "tabDomestic": "घरेलू प्लॉट्स",
+    "tabInvestment": "निवेश प्लॉट्स"
   },
   "housesPage": {
     "title1": "लक्जरी",
@@ -180,6 +186,8 @@
   "plotCard": {
     "plot": "प्लॉट",
     "premium": "प्रीमियम",
+    "domestic": "घरेलू",
+    "investment": "निवेश",
     "estEmi": "अनुमानित ईएमआई",
     "viewDetails": "विवरण देखें",
     "emi": "ईएमआई",
@@ -195,6 +203,14 @@
     "viewGallery": "गैलरी देखें",
     "aboutPlot": "प्लॉट के बारे में",
     "keyFeatures": "प्रमुख विशेषताएं और सुविधाएं",
+    "residentialFeatures": "आवासीय सुविधाएं",
+    "investmentBenefits": "निवेश वृद्धि लाभ",
+    "nearbySchools": "निकटवर्ती स्कूल",
+    "nearbyHospital": "निकटवर्ती अस्पताल",
+    "nearbyMarket": "निकटवर्ती बाज़ार",
+    "highROI": "उच्च निवेश वापसी (ROI)",
+    "capitalAppreciation": "तीव्र पूंजी वृद्धि",
+    "primeDevelopment": "भविष्य का प्रमुख विकास क्षेत्र",
     "interestedTitle": "रुचि है?",
     "interestedDesc": "अपने निवेश की ओर अगला कदम उठाएं",
     "bookVisit": "साइट विजिट बुक करें",

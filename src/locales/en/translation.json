@@ -38,6 +38,10 @@
     "premiumPlotsTitle": "Premium",
     "premiumPlotsHighlight": "Plots",
     "premiumPlotsDesc": "Discover exclusive plots with incredible investment potential and guaranteed buyback offers.",
+    "domesticPlotsTitle": "Domestic",
+    "domesticPlotsDesc": "For customers who want to build their dream home with modern residential features.",
+    "investmentPlotsTitle": "Investment",
+    "investmentPlotsDesc": "For customers who want future profit, high returns, and guaranteed buybacks.",
     "founderSubtitle": "Meet Our Founder",
     "founderName": "Anurag Parmar",
     "founderTitle": "Visionary behind DG PLOTS",
@@ -92,7 +96,9 @@
   "plotsPage": {
     "title1": "Premium",
     "title2": "Plots",
-    "desc": "Build your dream estate from the ground up on our handpicked luxury plots."
+    "desc": "Build your dream estate from the ground up on our handpicked luxury plots.",
+    "tabDomestic": "Domestic Plots",
+    "tabInvestment": "Investment Plots"
   },
   "housesPage": {
     "title1": "Luxury",
@@ -180,6 +186,8 @@
   "plotCard": {
     "plot": "Plot",
     "premium": "Premium",
+    "domestic": "Domestic",
+    "investment": "Investment",
     "estEmi": "Est. EMI",
     "viewDetails": "View Details",
     "emi": "EMI",
@@ -195,6 +203,14 @@
     "viewGallery": "View Gallery",
     "aboutPlot": "About Plot",
     "keyFeatures": "Key Features & Amenities",
+    "residentialFeatures": "Residential Features",
+    "investmentBenefits": "Investment Growth Benefits",
+    "nearbySchools": "Nearby Schools",
+    "nearbyHospital": "Nearby Hospital",
+    "nearbyMarket": "Nearby Market",
+    "highROI": "High ROI (Return on Investment)",
+    "capitalAppreciation": "Rapid Capital Appreciation",
+    "primeDevelopment": "Prime Future Development Zone",
     "interestedTitle": "Interested?",
     "interestedDesc": "Take the next step towards your investment",
     "bookVisit": "Book Site Visit",

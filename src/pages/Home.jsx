@@ -8,9 +8,10 @@ import { useTranslation } from 'react-i18next';
 const Home = () => {
   const { t } = useTranslation();
 
-  const premiumPlots = [
+  const domesticPlots = [
     {
-      id: "p1",
+      id: "dom1",
+      category: "domestic",
       title: t('propertiesData.p11_title'),
       price: 4500000,
       location: t('propertiesData.p11_loc'),
@@ -18,20 +19,43 @@ const Home = () => {
       image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      id: "p2",
+      id: "dom2",
+      category: "domestic",
       title: t('propertiesData.p12_title'),
       price: 6200000,
       location: t('propertiesData.p12_loc'),
       size: 8500,
       image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    },
+    }
+  ];
+
+  const investmentPlots = [
     {
-      id: "p3",
+      id: "inv1",
+      category: "investment",
       title: t('propertiesData.p13_title'),
       price: 3500000,
       location: t('propertiesData.p13_loc'),
       size: 2400,
       image: "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      id: "inv2",
+      category: "investment",
+      title: t('propertiesData.p5_title'),
+      price: 5500000,
+      location: t('propertiesData.p5_loc'),
+      size: 4000,
+      image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      id: "inv3",
+      category: "investment",
+      title: t('propertiesData.p8_title'),
+      price: 2800000,
+      location: t('propertiesData.p8_loc'),
+      size: 2000,
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     }
   ];
 
@@ -125,24 +149,46 @@ const Home = () => {
         <SearchFilter />
       </section>
 
-      {/* Premium Plots Section */}
+      {/* Domestic Plots Section */}
       <section className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-dg-gold/5 transform -skew-y-2 z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('home.premiumPlotsTitle')} <span className="text-dg-gold">{t('home.premiumPlotsHighlight')}</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">{t('home.premiumPlotsDesc')}</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('home.domesticPlotsTitle')} <span className="text-dg-gold">{t('home.premiumPlotsHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">{t('home.domesticPlotsDesc')}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {premiumPlots.map((plot) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {domesticPlots.map((plot) => (
               <PlotCard key={plot.id} {...plot} />
             ))}
           </div>
           
           <div className="text-center mt-12">
-            <Link to="/plots" className="btn-primary inline-block shadow-lg hover:shadow-xl transition-shadow">
-              {t('home.viewAll')} Plots
+            <Link to="/plots" state={{ category: 'domestic' }} className="btn-primary inline-block shadow-lg hover:shadow-xl transition-shadow">
+              {t('home.viewAll')} {t('home.domesticPlotsTitle')} {t('home.premiumPlotsHighlight')}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Plots Section */}
+      <section className="py-24 bg-dg-light relative">
+        <div className="absolute inset-0 bg-dg-gold/5 transform -skew-y-2 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('home.investmentPlotsTitle')} <span className="text-dg-gold">{t('home.premiumPlotsHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">{t('home.investmentPlotsDesc')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {investmentPlots.map((plot) => (
+              <PlotCard key={plot.id} {...plot} />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/plots" state={{ category: 'investment' }} className="btn-primary inline-block shadow-lg hover:shadow-xl transition-shadow">
+              {t('home.viewAll')} {t('home.investmentPlotsTitle')} {t('home.premiumPlotsHighlight')}
             </Link>
           </div>
         </div>

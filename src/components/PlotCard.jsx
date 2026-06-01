@@ -2,7 +2,7 @@ import { MapPin, Maximize, Calculator } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const PlotCard = ({ id, title, price, location, size, image }) => {
+const PlotCard = ({ id, category, title, price, location, size, image }) => {
   const { t } = useTranslation();
 
   const calculateEMI = (price) => {
@@ -25,7 +25,7 @@ const PlotCard = ({ id, title, price, location, size, image }) => {
             {t('plotCard.plot')}
           </span>
           <span className="bg-dg-gold text-dg-dark px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-lg">
-            {t('plotCard.premium')}
+            {category === 'investment' ? t('plotCard.investment') : t('plotCard.domestic')}
           </span>
         </div>
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
@@ -55,12 +55,14 @@ const PlotCard = ({ id, title, price, location, size, image }) => {
         <div className="flex gap-3 mt-6">
           <Link 
             to={`/plot/${id}`}
+            state={{ category }}
             className="flex-1 flex justify-center items-center bg-dg-gold text-dg-dark hover:bg-yellow-500 font-bold py-3 rounded transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300"
           >
             {t('plotCard.viewDetails')}
           </Link>
           <Link 
-            to={`/plot/${id}`}
+            to={`/plot/${id}?calc=true`}
+            state={{ category }}
             onClick={(e) => {
               window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             }}
