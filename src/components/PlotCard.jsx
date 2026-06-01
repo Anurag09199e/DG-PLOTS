@@ -1,8 +1,8 @@
-import { MapPin, Maximize, BedDouble, Bath, Calculator } from 'lucide-react';
+import { MapPin, Maximize, Calculator } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const PropertyCard = ({ id, title, price, location, type, size, beds, baths, image, status }) => {
+const PlotCard = ({ id, title, price, location, size, image }) => {
   const { t } = useTranslation();
 
   const calculateEMI = (price) => {
@@ -21,19 +21,17 @@ const PropertyCard = ({ id, title, price, location, type, size, beds, baths, ima
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-dg-dark text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase">
-            {type}
+          <span className="bg-dg-dark text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg">
+            {t('plotCard.plot')}
           </span>
-          {status && (
-            <span className="bg-dg-gold text-dg-dark px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">
-              {status}
-            </span>
-          )}
+          <span className="bg-dg-gold text-dg-dark px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-lg">
+            {t('plotCard.premium')}
+          </span>
         </div>
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
           <p className="text-dg-gold font-serif text-2xl font-bold">₹{price.toLocaleString()}</p>
           <p className="text-gray-300 text-sm flex items-center gap-1 mt-1 font-medium">
-            <Calculator className="w-4 h-4" /> Est. EMI: ₹{calculateEMI(price).toLocaleString()}/mo
+            <Calculator className="w-4 h-4" /> {t('plotCard.estEmi')}: ₹{calculateEMI(price).toLocaleString()}/{t('plotCard.mo')}
           </p>
         </div>
       </div>
@@ -45,36 +43,35 @@ const PropertyCard = ({ id, title, price, location, type, size, beds, baths, ima
           <span className="line-clamp-1">{location}</span>
         </div>
         
-        <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100 mt-auto">
+        <div className="grid grid-cols-1 gap-4 pt-4 border-t border-gray-100 mt-auto">
           {size && (
             <div className="flex items-center gap-2 text-sm text-gray-600">
               <Maximize className="w-4 h-4 text-dg-gold" />
-              <span>{size} {t('property.sqft')}</span>
-            </div>
-          )}
-          {beds && (
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <BedDouble className="w-4 h-4 text-dg-gold" />
-              <span>{beds} {t('property.beds')}</span>
-            </div>
-          )}
-          {baths && (
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Bath className="w-4 h-4 text-dg-gold" />
-              <span>{baths} {t('property.baths')}</span>
+              <span className="font-medium">{size} Sq. Ft.</span>
             </div>
           )}
         </div>
         
-        <Link 
-          to={`/property/${id}`}
-          className="mt-6 block w-full text-center border-2 border-dg-dark text-dg-dark hover:bg-dg-dark hover:text-white font-medium py-2 rounded transition-colors"
-        >
-          {t('home.exploreBtn')}
-        </Link>
+        <div className="flex gap-3 mt-6">
+          <Link 
+            to={`/plot/${id}`}
+            className="flex-1 flex justify-center items-center bg-dg-gold text-dg-dark hover:bg-yellow-500 font-bold py-3 rounded transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300"
+          >
+            {t('plotCard.viewDetails')}
+          </Link>
+          <Link 
+            to={`/plot/${id}`}
+            onClick={(e) => {
+              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }}
+            className="flex-1 flex justify-center items-center gap-2 border-2 border-dg-gold text-dg-gold hover:bg-dg-gold hover:text-dg-dark font-bold py-3 rounded transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300"
+          >
+            <Calculator className="w-5 h-5" /> {t('plotCard.emi')}
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default PropertyCard;
+export default PlotCard;

@@ -34,7 +34,15 @@
     "adv2Title": "Expert Guidance",
     "adv2Desc": "Our seasoned professionals provide tailored advice to match your lifestyle needs.",
     "adv3Title": "Seamless Experience",
-    "adv3Desc": "From viewing to closing, we ensure a smooth, transparent, and luxurious journey."
+    "adv3Desc": "From viewing to closing, we ensure a smooth, transparent, and luxurious journey.",
+    "premiumPlotsTitle": "Premium",
+    "premiumPlotsHighlight": "Plots",
+    "premiumPlotsDesc": "Discover exclusive plots with incredible investment potential and guaranteed buyback offers.",
+    "founderSubtitle": "Meet Our Founder",
+    "founderName": "Anurag Parmar",
+    "founderTitle": "Visionary behind DG PLOTS",
+    "founderQuote": "\"Real estate is not just about buying land or properties; it's about investing in a future, a community, and a legacy. At DG PLOTS, we are committed to bringing unparalleled transparency, unmatched value, and world-class developments to our clients.\"",
+    "founderBio": "With over a decade of expertise in identifying premium real estate opportunities, Anurag Parmar has transformed the landscape of property investment, making luxury accessible and securing guarantees like our signature 3-Year Double Price Buyback."
   },
   "search": {
     "location": "Location",
@@ -144,7 +152,13 @@
     "p9_type": "Villa",
     "p10_title": "Urban Oasis Plot",
     "p10_loc": "Miami, FL",
-    "p10_type": "Premium Plot"
+    "p10_type": "Premium Plot",
+    "p11_title": "Golf Course Extension Plot",
+    "p11_loc": "Sector 65, Golf Course Ext",
+    "p12_title": "Lakeview Corner Plot",
+    "p12_loc": "Phase 2, Lakeview Estate",
+    "p13_title": "Valley View Premium Land",
+    "p13_loc": "Green Valley Sector 12"
   },
   "featuresData": {
     "f1": "Smart Home Technology",
@@ -152,6 +166,43 @@
     "f3": "Wine Cellar",
     "f4": "Home Theater",
     "f5": "Gourmet Kitchen",
-    "f6": "Private Spa"
+    "f6": "Private Spa",
+    "f7": "Wide Roads",
+    "f8": "Water Supply",
+    "f9": "Electricity",
+    "f10": "Sewerage",
+    "f11": "Gated Security",
+    "f12": "Nearby Market",
+    "f13": "School Nearby",
+    "f14": "Hospital Nearby",
+    "f15": "Loan Facility Available"
+  },
+  "plotCard": {
+    "plot": "Plot",
+    "premium": "Premium",
+    "estEmi": "Est. EMI",
+    "viewDetails": "View Details",
+    "emi": "EMI",
+    "mo": "mo"
+  },
+  "plotDetails": {
+    "exclusiveOffer": "Exclusive Offer",
+    "buybackTitle": "3 Years Double Price Buyback Guarantee",
+    "buybackDesc": "Invest with zero risk. If you choose to sell this plot after 3 years, DG PLOTS guarantees to buy it back at",
+    "buybackHighlight": "double the purchase price",
+    "forSale": "For Sale",
+    "startingPrice": "Starting Price",
+    "viewGallery": "View Gallery",
+    "aboutPlot": "About Plot",
+    "keyFeatures": "Key Features & Amenities",
+    "interestedTitle": "Interested?",
+    "interestedDesc": "Take the next step towards your investment",
+    "bookVisit": "Book Site Visit",
+    "callNow": "Call Now",
+    "whatsapp": "WhatsApp Inquiry",
+    "advisorTitle": "Senior Property Advisor",
+    "mockTitle": "Premium Residential Plot in Green Valley",
+    "mockLoc": "Green Valley Sector 12, City",
+    "mockDesc": "Build your dream home on this prime residential plot. Located in one of the city's most sought-after neighborhoods, this plot offers the perfect blend of tranquility and urban convenience. The area boasts wide roads, lush green surroundings, and close proximity to top-tier schools and hospitals. A rare investment opportunity that guarantees high returns."
   }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import SearchFilter from '../components/SearchFilter';
-import PropertyCard from '../components/PropertyCard';
+import PlotCard from '../components/PlotCard';
 import PropertyCardSkeleton from '../components/PropertyCardSkeleton';
 import { useTranslation } from 'react-i18next';
 
@@ -89,7 +89,7 @@ const Plots = () => {
             </>
           ) : (
             plots.map((plot) => (
-              <PropertyCard key={plot.id} {...plot} />
+              <PlotCard key={plot.id} {...plot} />
             ))
           )}
         </div>

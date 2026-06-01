@@ -61,10 +61,10 @@ const Navbar = () => {
             
             <button 
               onClick={toggleLanguage}
-              className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors ${!isTransparent ? 'text-gray-300 hover:text-dg-gold' : 'text-gray-800 lg:text-gray-200 hover:text-dg-gold'}`}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border-2 text-base font-bold tracking-wider transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${!isTransparent ? 'border-dg-gold text-dg-gold hover:bg-dg-gold hover:text-dg-dark' : 'border-dg-dark text-dg-dark hover:bg-dg-dark hover:text-white lg:border-white lg:text-white lg:hover:bg-white lg:hover:text-dg-dark'}`}
             >
-              <Globe className="w-4 h-4" />
-              {i18n.language === 'en' ? 'HI' : 'EN'}
+              <Globe className="w-5 h-5" />
+              {i18n.language === 'en' ? 'हिंदी (HI)' : 'ENGLISH (EN)'}
             </button>
 
             <button className="btn-primary py-2 px-6 text-sm">

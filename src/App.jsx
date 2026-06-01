@@ -11,6 +11,7 @@ import Houses from './pages/Houses';
 import PropertyDetails from './pages/PropertyDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PlotDetails from './pages/PlotDetails';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/plots" element={<Plots />} />
             <Route path="/houses" element={<Houses />} />
             <Route path="/property/:id" element={<PropertyDetails />} />
+            <Route path="/plot/:id" element={<PlotDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

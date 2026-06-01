@@ -1,57 +1,37 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, MapPin, BadgeIndianRupee, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SearchFilter from '../components/SearchFilter';
-import PropertyCard from '../components/PropertyCard';
-import PropertyCardSkeleton from '../components/PropertyCardSkeleton';
+import PlotCard from '../components/PlotCard';
 import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const { t } = useTranslation();
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate API fetch delay
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const featuredProperties = [
+  const premiumPlots = [
     {
-      id: 1,
-      title: t('propertiesData.p1_title'),
-      price: 5500000,
-      location: t('propertiesData.p1_loc'),
-      type: t('propertiesData.p1_type'),
-      size: 8500,
-      beds: 6,
-      baths: 7.5,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      status: "Featured"
-    },
-    {
-      id: 2,
-      title: t('propertiesData.p2_title'),
-      price: 2100000,
-      location: t('propertiesData.p2_loc'),
-      type: t('propertiesData.p2_type'),
-      size: 15000,
+      id: "p1",
+      title: t('propertiesData.p11_title'),
+      price: 4500000,
+      location: t('propertiesData.p11_loc'),
+      size: 5000,
       image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      id: 3,
-      title: t('propertiesData.p3_title'),
-      price: 8900000,
-      location: t('propertiesData.p3_loc'),
-      type: t('propertiesData.p3_type'),
-      size: 12000,
-      beds: 8,
-      baths: 9,
-      image: "https://images.unsplash.com/photo-1600607687931-cecebd802404?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      status: "New"
+      id: "p2",
+      title: t('propertiesData.p12_title'),
+      price: 6200000,
+      location: t('propertiesData.p12_loc'),
+      size: 8500,
+      image: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      id: "p3",
+      title: t('propertiesData.p13_title'),
+      price: 3500000,
+      location: t('propertiesData.p13_loc'),
+      size: 2400,
+      image: "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     }
   ];
 
@@ -145,32 +125,72 @@ const Home = () => {
         <SearchFilter />
       </section>
 
-      {/* Featured Properties */}
-      <section className="py-24 bg-dg-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Premium Plots Section */}
+      <section className="py-24 bg-white relative">
+        <div className="absolute inset-0 bg-dg-gold/5 transform -skew-y-2 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('home.featuredTitle')} <span className="text-dg-gold">{t('home.featuredHighlight')}</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">{t('home.featuredDesc')}</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('home.premiumPlotsTitle')} <span className="text-dg-gold">{t('home.premiumPlotsHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">{t('home.premiumPlotsDesc')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {loading ? (
-              <>
-                <PropertyCardSkeleton />
-                <PropertyCardSkeleton />
-                <PropertyCardSkeleton />
-              </>
-            ) : (
-              featuredProperties.map((property) => (
-                <PropertyCard key={property.id} {...property} />
-              ))
-            )}
+            {premiumPlots.map((plot) => (
+              <PlotCard key={plot.id} {...plot} />
+            ))}
           </div>
-
+          
           <div className="text-center mt-12">
-            <Link to="/houses" className="btn-outline inline-block">
-              {t('home.viewAll')}
+            <Link to="/plots" className="btn-primary inline-block shadow-lg hover:shadow-xl transition-shadow">
+              {t('home.viewAll')} Plots
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Founder Section */}
+      <section className="py-24 bg-dg-light relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full md:w-1/2"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-dg-gold/20 transform translate-x-4 translate-y-4 rounded-xl z-0"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Anurag Parmar - Founder" 
+                  className="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl"
+                />
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full md:w-1/2"
+            >
+              <div className="inline-block bg-dg-dark text-dg-gold px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase mb-6 shadow-md">
+                {t('home.founderSubtitle')}
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-dg-dark mb-6">{t('home.founderName')}</h2>
+              <h3 className="text-xl text-dg-gold font-medium mb-6 uppercase tracking-wide">{t('home.founderTitle')}</h3>
+              <p className="text-gray-600 text-lg leading-relaxed mb-6 italic">
+                {t('home.founderQuote')}
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                {t('home.founderBio')}
+              </p>
+              <div className="pt-8 border-t border-gray-200">
+                <h4 className="font-serif text-2xl text-dg-dark font-bold opacity-80" style={{ fontFamily: 'Brush Script MT, cursive' }}>{t('home.founderName')}</h4>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
